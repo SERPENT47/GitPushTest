@@ -3,7 +3,7 @@ import subprocess
 
 username = "SERPENT47"
 email = "khaliduzzaman.mredul@gmail.com"
-repo = "https://github.com/SERPENT47/GitPushTest.git"
+repo_link = "https://github.com/SERPENT47/GitPushTest.git"
 
 def git_init():
     try:
@@ -41,7 +41,7 @@ def git_push():
     try:
         subprocess.call(["git", "commit", "-m", "Update"])
         subprocess.call(["git", "branch", "-M", "main"])
-        subprocess.call(["git", "remote", "add", repo])
+        subprocess.call(["git", "remote", "add", repo_link])
         subprocess.call(["git", "push", "-u", "origin", "main"])
     except:
         print("Error pushing into git!")
