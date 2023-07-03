@@ -3,7 +3,7 @@ import subprocess
 
 username = "SERPENT47"
 email = "khaliduzzaman.mredul@gmail.com"
-repo = "https://github.com/SERPENT47/GitPush_TestRepo.git"
+repo = "https://github.com/SERPENT47/GitPushTest.git"
 
 def git_init():
     try:
@@ -53,5 +53,5 @@ if __name__ == "__main__":
 
 '''
 SERPENT47
-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
+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
 '''
