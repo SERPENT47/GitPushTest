@@ -7,6 +7,10 @@ repo = "https://github.com/SERPENT47/GitPushTest.git"
 
 def git_init():
     try:
+        subprocess.call(["git", "init"])
+    except:
+        print("Git Initialization failed!")
+    '''try:
         subprocess.call(["git", "--version"])
     except:
         print("Git is not installed. Please install Git and try again.")
@@ -15,7 +19,7 @@ def git_init():
         subprocess.check_output(["git", "rev-parse", "--is-inside-work-tree"])
     except:
         print("Initializing git...")
-        subprocess.call(["git", "init"])
+        subprocess.call(["git", "init"])'''
         
 def git_config():
     try:
