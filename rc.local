@@ -1,0 +1,47 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+# last update AR, October 19, 2022
+(sleep 1
+sudo service ntp start
+sudo service ntp status
+#sudo date -s "$(wget -qSO- --max-redirect=0 www.google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+sudo service ntp restart
+sleep 10
+date
+sleep 20
+date
+sudo -u pi vncserver
+cd /home/pi/Desktop/Repo_Update/
+sleep 10
+date
+sleep 10
+date
+sudo python3 Repo_Update.py
+
+cd /home/pi/Desktop/aiub_trp_ip_v1/bscl_deploy/
+#sudo python3 /home/pi/Desktop/aiub_trp_ip_v1/bscl_deploy/wifi_v2.py
+sleep 10
+date
+sleep 10
+date
+sudo python3 tu2.py
+sudo python3 /home/pi/Desktop/aiub_trp_ip_v1/bscl_deploy/aiub_trp_ip_V1_2.py
+) &
+
+exit 0
